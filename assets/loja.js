@@ -97,7 +97,7 @@ function track(evento, dados) { (window.dataLayer = window.dataLayer || []).push
 /* ---------- componentes ---------- */
 function card(p) {
   const c = conteudo(p.cod); const tags = [];
-  if (c?.exclusivo) tags.push('<span class="tag roxo">Criação exclusiva</span>');
+  if (c?.exclusivo) tags.push('<span class="tag roxo">Exclusivo</span>');
   if (p.variacoes && p.cat === "perfumes" && p.variacoes.length > 1) tags.push(`<span class="tag">${p.variacoes.map(v => v.rotulo).join(" · ")}</span>`);
   const aPartir = p.variacoes && new Set(p.variacoes.map(v => v.preco)).size > 1;
   const sub = c?.familia ? c.familia : linhaDe(p);
@@ -315,7 +315,7 @@ function paginaCategoria(slug, params) {
           <span id="contagem"></span>
           <div style="display:flex;gap:8px">
             <button class="btn btn-borda so-cel" style="height:42px;padding:0 16px" data-abrir-filtros>${ic("filtro")} Filtros</button>
-            <select class="sel" id="ordem" aria-label="Ordenar"><option value="rel">Mais relevantes</option><option value="menor">Menor preço</option><option value="maior">Maior preço</option><option value="az">A a Z</option></select>
+            <select class="sel" id="ordem" aria-label="Ordenar"><option value="rel">Relevância</option><option value="menor">Menor preço</option><option value="maior">Maior preço</option><option value="az">A a Z</option></select>
           </div>
         </div>
         <div class="grade g3" id="lista"></div>

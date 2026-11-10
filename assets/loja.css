@@ -457,3 +457,93 @@ svg.i.if,svg.i.iw{fill:currentColor;stroke:none}
 }
 
 @media (max-width:720px){.so-pc-txt{display:none}.faixa-proposta{font-size:12px;padding:6px 12px}.aviso{font-size:12.5px;padding:7px 12px}}
+
+/* =========================================================
+   Correções de celular (10/11/2026)
+   ========================================================= */
+/* fotos sempre presas na caixa quadrada (não estouram o card em carrossel/grade) */
+.card .im{position:relative;display:block;overflow:hidden}
+.card .im img{position:absolute;left:10%;top:10%;width:80%;height:80%;object-fit:contain}
+.cat .im{position:relative;display:block}
+.cat .im img{position:absolute;left:11%;top:11%;width:78%;height:78%;object-fit:contain}
+.renno-item .im{position:relative;display:block}
+.renno-item .im img{position:absolute;left:7%;top:7%;width:86%;height:86%;object-fit:contain}
+.item .im{position:relative;display:block}
+.item .im img{position:absolute;left:8%;top:8%;width:84%;height:84%;object-fit:contain}
+.perf-vitrine img{height:170px;width:100%;object-fit:contain}
+.busca-res img{flex:none}
+.pdp-foto{position:relative}
+.pdp-foto img{position:absolute;left:13%;top:10%;width:74%;height:80%;object-fit:contain}
+.pdp-foto.zoom img{transform:scale(1.5)}
+/* texto do card nunca empurra a largura */
+.card,.card .info,.card h3{min-width:0}
+.card h3{overflow-wrap:anywhere}
+
+/* menu horizontal: indica que rola (esmaece na borda) */
+@media (max-width:1080px){
+  .menu{-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent);padding-right:28px}
+}
+/* iOS: campo com fonte < 16px dá zoom automático ao tocar */
+@media (max-width:860px){
+  input,select,textarea,.busca input,.campo input,.campo select,.sel,.qtd input{font-size:16px}
+}
+/* Safari iOS precisa do prefixo */
+.topo{-webkit-backdrop-filter:saturate(1.4) blur(14px)}
+.h2-abas{-webkit-backdrop-filter:blur(10px)}
+/* fatos da perfumaria em telas estreitas */
+@media (max-width:420px){
+  .perf-fatos{grid-template-columns:1fr;gap:8px}
+  .perf-fatos div{display:flex;align-items:center;gap:14px;padding:12px 16px}
+  .perf-fatos b{min-width:74px}
+}
+/* toast acima da barra fixa de compra */
+@media (max-width:720px){ body.tem-barra .toast{bottom:96px} }
+/* área segura (iPhone com entalhe/barra inferior) */
+.gaveta-pe{padding-bottom:calc(22px + env(safe-area-inset-bottom))}
+/* cards: etiquetas não passam por baixo do coração; preço "a partir de" em linha própria */
+.tags{right:56px;max-width:calc(100% - 68px)}
+.tag{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.card .preco small{display:block;margin:0 0 1px}
+.card .rodape{align-items:flex-end;gap:8px}
+@media (max-width:720px){
+  .card h3{font-size:16px;line-height:1.2}
+  .card .linha-p{font-size:10.5px;letter-spacing:.06em}
+  .tag{font-size:10.5px;padding:3px 8px}
+  .tags .tag:not(.roxo):nth-child(2){display:none}
+  .fav{width:36px;height:36px;top:8px;right:8px}
+}
+/* categoria: contador em cima, botões embaixo */
+@media (max-width:860px){
+  .barra-lista{flex-wrap:wrap}
+  .barra-lista>span{width:100%}
+  .barra-lista>div{width:100%}
+  .barra-lista>div>*{flex:1}
+  .barra-lista .sel{min-width:0}
+}
+/* por que Jan Rosê: compacto no celular */
+@media (max-width:720px){
+  .pilares{gap:10px}
+  .pilar{display:grid;grid-template-columns:48px 1fr;column-gap:14px;padding:16px}
+  .pilar .ico{grid-row:span 2;margin:0}
+  .pilar b{font-size:16px;margin:2px 0 2px}
+}
+/* checkout: pagamento em linha, resumo do pedido primeiro no celular */
+.pag label{display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:center;row-gap:2px}
+.pag label input{grid-row:span 2;width:20px;height:20px;margin:0}
+.pag label small{grid-column:2}
+@media (max-width:860px){
+  .resumo-ped{order:-1}
+  .check{gap:16px}
+  .passos{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .passos::-webkit-scrollbar{display:none}
+  .passos span{white-space:nowrap;flex:none}
+  .bloco{padding:18px}
+}
+/* PDP no celular: linha de quantidade ocupa a largura toda */
+@media (max-width:720px){
+  .comprar .qtd{flex:1;justify-content:space-between}
+  .pdp{gap:24px}
+  .pdp .resumo{font-size:16px}
+}
+
+@media (max-width:400px){.tags .tag:not(.roxo){display:none}}
